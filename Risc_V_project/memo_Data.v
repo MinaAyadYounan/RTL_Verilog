@@ -8,7 +8,12 @@ module memo_Data(
     );
     reg [31:0] memo[0:127];
     wire address;
+    integer i;
     assign address =Addr[6:0];
+    initial begin  
+           for(i=0;i<127;i=i+1)  
+                ram[i] <= 31'd0;  
+    end	
     always@(*) begin
     RD = WE ? {32{1'b0}}: memo[address];
     end
