@@ -15,11 +15,11 @@ module reg_file(
     assign RD1 = memo[r1];
     assign RD2 = memo[r2];
     always@(posedge clk) begin
-    memo[0] = 32'b0;
+    memo[0] <= 32'b0;
      if(W_EN) begin
      memo[W1] <= W_data;
      end 
-     else begin
+     else if (W1 != 0) begin
      memo[W1] <= memo[W1];
      end
     end    
