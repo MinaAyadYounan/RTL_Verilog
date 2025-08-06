@@ -1,0 +1,118 @@
+ 
+****************************************
+Report : cell
+Design : FullModule_RiscV
+Version: O-2018.06-SP1
+Date   : Wed Aug  6 02:16:06 2025
+****************************************
+
+Attributes:
+    b - black box (unknown)
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    u - contains unmapped logic
+
+Cell                      Reference       Library             Area  Attributes
+--------------------------------------------------------------------------------
+Alu_32b                   ALU_32                          28570.521659
+                                                                    h
+ISA                       instruction_ROM                 176.947205
+                                                                    h
+Mux_Clkdft                MUX2_1                          17.510400 h
+Mux_rstdft                MUX2_0                          17.510400 h
+PC_4                      ADDER_PC                        1292.083217
+                                                                    h
+PC_mux                    MUX2_32b_1                      655.257596
+                                                                    h
+U2                        NBUFFX2         saed90nm_max    5.529600  
+U3                        NBUFFX2         saed90nm_max    5.529600  
+U4                        NBUFFX2         saed90nm_max    5.529600  
+U5                        NBUFFX2         saed90nm_max    5.529600  
+U6                        NBUFFX2         saed90nm_max    5.529600  
+U7                        NBUFFX2         saed90nm_max    5.529600  
+U8                        NBUFFX2         saed90nm_max    5.529600  
+U9                        NBUFFX2         saed90nm_max    5.529600  
+U10                       NBUFFX2         saed90nm_max    5.529600  
+U11                       NBUFFX2         saed90nm_max    5.529600  
+U12                       NBUFFX2         saed90nm_max    5.529600  
+U13                       NBUFFX2         saed90nm_max    5.529600  
+U14                       NBUFFX2         saed90nm_max    5.529600  
+U15                       NBUFFX2         saed90nm_max    5.529600  
+U16                       NBUFFX2         saed90nm_max    5.529600  
+U17                       NBUFFX2         saed90nm_max    5.529600  
+U18                       NBUFFX2         saed90nm_max    5.529600  
+U19                       NBUFFX2         saed90nm_max    5.529600  
+U20                       NBUFFX2         saed90nm_max    5.529600  
+U21                       NBUFFX2         saed90nm_max    5.529600  
+U22                       NBUFFX2         saed90nm_max    5.529600  
+U23                       NBUFFX2         saed90nm_max    5.529600  
+U24                       NBUFFX2         saed90nm_max    5.529600  
+U25                       NBUFFX2         saed90nm_max    5.529600  
+U26                       NBUFFX2         saed90nm_max    5.529600  
+U27                       NBUFFX2         saed90nm_max    5.529600  
+U28                       NBUFFX2         saed90nm_max    5.529600  
+U29                       NBUFFX2         saed90nm_max    5.529600  
+U30                       NBUFFX2         saed90nm_max    5.529600  
+U31                       NBUFFX2         saed90nm_max    5.529600  
+U32                       NBUFFX2         saed90nm_max    5.529600  
+U33                       NBUFFX2         saed90nm_max    5.529600  
+U34                       NBUFFX2         saed90nm_max    5.529600  
+U35                       NBUFFX2         saed90nm_max    5.529600  
+U36                       NBUFFX2         saed90nm_max    5.529600  
+U37                       NBUFFX2         saed90nm_max    5.529600  
+U38                       NBUFFX2         saed90nm_max    5.529600  
+U39                       NBUFFX2         saed90nm_max    5.529600  
+U40                       NBUFFX2         saed90nm_max    5.529600  
+U41                       NBUFFX2         saed90nm_max    5.529600  
+U42                       NBUFFX2         saed90nm_max    5.529600  
+U43                       NBUFFX2         saed90nm_max    5.529600  
+U44                       NBUFFX2         saed90nm_max    5.529600  
+U45                       NBUFFX2         saed90nm_max    5.529600  
+U46                       NBUFFX2         saed90nm_max    5.529600  
+U47                       NBUFFX2         saed90nm_max    5.529600  
+U48                       NBUFFX2         saed90nm_max    5.529600  
+U49                       NBUFFX2         saed90nm_max    5.529600  
+U50                       NBUFFX2         saed90nm_max    5.529600  
+U51                       NBUFFX2         saed90nm_max    5.529600  
+U52                       NBUFFX2         saed90nm_max    5.529600  
+U53                       NBUFFX2         saed90nm_max    5.529600  
+U54                       NBUFFX2         saed90nm_max    5.529600  
+U55                       NBUFFX2         saed90nm_max    5.529600  
+U56                       NBUFFX2         saed90nm_max    5.529600  
+U57                       NBUFFX2         saed90nm_max    5.529600  
+U58                       NBUFFX2         saed90nm_max    5.529600  
+U59                       NBUFFX2         saed90nm_max    5.529600  
+U60                       NBUFFX2         saed90nm_max    5.529600  
+U61                       NBUFFX2         saed90nm_max    5.529600  
+U62                       NBUFFX2         saed90nm_max    5.529600  
+U63                       NBUFFX2         saed90nm_max    5.529600  
+U64                       NBUFFX2         saed90nm_max    5.529600  
+U65                       NBUFFX2         saed90nm_max    5.529600  
+U66                       NBUFFX2         saed90nm_max    5.529600  
+U67                       NBUFFX2         saed90nm_max    5.529600  
+U68                       NBUFFX2         saed90nm_max    5.529600  
+U69                       NBUFFX2         saed90nm_max    5.529600  
+U70                       NBUFFX2         saed90nm_max    5.529600  
+U71                       NBUFFX2         saed90nm_max    5.529600  
+U72                       NBUFFX2         saed90nm_max    5.529600  
+U73                       NBUFFX2         saed90nm_max    5.529600  
+alu_src                   MUX2_32b_0                      655.257596
+                                                                    h
+controller                RiscV_controller                384.307197
+                                                                    h
+counter                   PC_counter                      429.465608
+                                                                    h, n
+ex_imm                    Extend                          677.375998
+                                                                    h
+mem_D                     memo_Data                       131838.565720
+                                                                    h, n
+pc_target                 Adder_Nbit                      4555.468847
+                                                                    h
+reg_F_src                 mux4                            1631.231992
+                                                                    h
+regester_memo             reg_file                        84407.500588
+                                                                    h, n
+--------------------------------------------------------------------------------
+Total 86 cells                                            255707.135234
+1

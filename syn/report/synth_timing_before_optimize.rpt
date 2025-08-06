@@ -1,0 +1,941 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'FullModule_RiscV' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : FullModule_RiscV
+Version: O-2018.06-SP1
+Date   : Wed Aug  6 02:15:51 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: WORST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+
+  Startpoint: mem_D/memo_reg[0][4]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][4]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][4]/CLK (DFFX2)                        0.00 #     0.00 r
+  mem_D/memo_reg[0][4]/Q (DFFX2)                          0.73       0.73 f
+  mem_D/U12/Q (AO221X1)                                   2.29       3.02 f
+  mem_D/U11/QN (NOR4X0)                                   0.68       3.70 r
+  mem_D/U9/QN (OAI221X1)                                  0.86       4.56 f
+  mem_D/RD[4] (memo_Data)                                 0.00       4.56 f
+  reg_F_src/B[4] (mux4)                                   0.00       4.56 f
+  reg_F_src/U18/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U4/Q (OR2X1)                                  0.24       5.08 f
+  reg_F_src/out[4] (mux4)                                 0.00       5.08 f
+  regester_memo/W_data[4] (reg_file)                      0.00       5.08 f
+  regester_memo/U1590/QN (NAND2X0)                        0.22       5.29 r
+  regester_memo/U1587/QN (NAND2X0)                        0.43       5.72 f
+  regester_memo/memo_reg[0][4]/D (DFFX1)                  0.32       6.04 f
+  data arrival time                                                  6.04
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][4]/CLK (DFFX1)                0.00       4.97 r
+  library setup time                                     -0.18       4.79
+  data required time                                                 4.79
+  --------------------------------------------------------------------------
+  data required time                                                 4.79
+  data arrival time                                                 -6.04
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.25
+
+
+  Startpoint: mem_D/memo_reg[0][8]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][8]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][8]/CLK (DFFX1)                        0.00 #     0.00 r
+  mem_D/memo_reg[0][8]/Q (DFFX1)                          0.63       0.63 f
+  mem_D/U3523/Q (AO221X1)                                 2.28       2.91 f
+  mem_D/U3530/QN (NOR4X0)                                 0.68       3.59 r
+  mem_D/U3559/QN (OAI221X1)                               0.86       4.45 f
+  mem_D/RD[8] (memo_Data)                                 0.00       4.45 f
+  reg_F_src/B[8] (mux4)                                   0.00       4.45 f
+  reg_F_src/U10/Q (AO22X1)                                0.27       4.73 f
+  reg_F_src/U70/Q (OR2X1)                                 0.24       4.97 f
+  reg_F_src/out[8] (mux4)                                 0.00       4.97 f
+  regester_memo/W_data[8] (reg_file)                      0.00       4.97 f
+  regester_memo/U2713/QN (NAND2X0)                        0.22       5.19 r
+  regester_memo/U2714/QN (NAND2X0)                        0.43       5.61 f
+  regester_memo/memo_reg[0][8]/D (DFFX1)                  0.32       5.94 f
+  data arrival time                                                  5.94
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][8]/CLK (DFFX1)                0.00       4.97 r
+  library setup time                                     -0.18       4.79
+  data required time                                                 4.79
+  --------------------------------------------------------------------------
+  data required time                                                 4.79
+  data arrival time                                                 -5.94
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.15
+
+
+  Startpoint: mem_D/memo_reg[0][29]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][29]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][29]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][29]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U4304/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5628/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U4339/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[29] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[29] (mux4)                                  0.00       4.56 f
+  reg_F_src/U28/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U27/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[29] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[29] (reg_file)                     0.00       5.13 f
+  regester_memo/U1101/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][29]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][29]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][28]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][28]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][28]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][28]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U4267/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U3246/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U4302/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[28] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[28] (mux4)                                  0.00       4.56 f
+  reg_F_src/U30/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U29/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[28] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[28] (reg_file)                     0.00       5.13 f
+  regester_memo/U2921/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][28]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][28]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][26]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][26]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][26]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][26]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U4193/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5627/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U4228/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[26] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[26] (mux4)                                  0.00       4.56 f
+  reg_F_src/U34/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U33/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[26] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[26] (reg_file)                     0.00       5.13 f
+  regester_memo/U1098/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][26]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][26]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][25]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][25]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][25]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][25]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U4156/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U3245/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U4191/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[25] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[25] (mux4)                                  0.00       4.56 f
+  reg_F_src/U36/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U35/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[25] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[25] (reg_file)                     0.00       5.13 f
+  regester_memo/U2920/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][25]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][25]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][21]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][21]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][21]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][21]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U4007/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5626/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U4042/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[21] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[21] (mux4)                                  0.00       4.56 f
+  reg_F_src/U44/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U43/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[21] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[21] (reg_file)                     0.00       5.13 f
+  regester_memo/U1093/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][21]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][21]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][20]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][20]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][20]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][20]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U3970/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U3244/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U4005/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[20] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[20] (mux4)                                  0.00       4.56 f
+  reg_F_src/U46/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U45/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[20] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[20] (reg_file)                     0.00       5.13 f
+  regester_memo/U2919/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][20]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][20]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][18]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][18]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][18]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][18]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U3896/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5625/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3931/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[18] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[18] (mux4)                                  0.00       4.56 f
+  reg_F_src/U52/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U51/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[18] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[18] (reg_file)                     0.00       5.13 f
+  regester_memo/U1090/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][18]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][18]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][17]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][17]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][17]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][17]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U3859/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U3243/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3894/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[17] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[17] (mux4)                                  0.00       4.56 f
+  reg_F_src/U54/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U53/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[17] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[17] (reg_file)                     0.00       5.13 f
+  regester_memo/U2918/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][17]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][17]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][13]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][13]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][13]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][13]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U3711/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5624/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3746/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[13] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[13] (mux4)                                  0.00       4.56 f
+  reg_F_src/U62/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U61/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[13] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[13] (reg_file)                     0.00       5.13 f
+  regester_memo/U1085/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][13]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][13]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][12]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][12]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][12]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][12]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U3674/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U3242/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3709/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[12] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[12] (mux4)                                  0.00       4.56 f
+  reg_F_src/U64/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U63/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[12] (mux4)                                0.00       5.13 f
+  regester_memo/W_data[12] (reg_file)                     0.00       5.13 f
+  regester_memo/U2707/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][12]/D (DFFX1)                 0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][12]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][2]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][2]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][2]/CLK (DFFX2)                        0.00 #     0.00 r
+  mem_D/memo_reg[0][2]/Q (DFFX2)                          0.73       0.73 f
+  mem_D/U3336/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U3241/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3371/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[2] (memo_Data)                                 0.00       4.56 f
+  reg_F_src/B[2] (mux4)                                   0.00       4.56 f
+  reg_F_src/U26/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U25/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[2] (mux4)                                 0.00       5.13 f
+  regester_memo/W_data[2] (reg_file)                      0.00       5.13 f
+  regester_memo/U2917/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][2]/D (DFFX1)                  0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][2]/CLK (DFFX1)                0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][1]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][1]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][1]/CLK (DFFX2)                        0.00 #     0.00 r
+  mem_D/memo_reg[0][1]/Q (DFFX2)                          0.73       0.73 f
+  mem_D/U3299/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5622/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3334/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[1] (memo_Data)                                 0.00       4.56 f
+  reg_F_src/B[1] (mux4)                                   0.00       4.56 f
+  reg_F_src/U48/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U47/Q (AO221X1)                               0.30       5.13 f
+  reg_F_src/out[1] (mux4)                                 0.00       5.13 f
+  regester_memo/W_data[1] (reg_file)                      0.00       5.13 f
+  regester_memo/U2922/Q (AO22X1)                          0.45       5.58 f
+  regester_memo/memo_reg[0][1]/D (DFFX1)                  0.32       5.90 f
+  data arrival time                                                  5.90
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][1]/CLK (DFFX1)                0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.90
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.11
+
+
+  Startpoint: mem_D/memo_reg[0][5]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][5]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][5]/CLK (DFFX2)                        0.00 #     0.00 r
+  mem_D/memo_reg[0][5]/Q (DFFX2)                          0.73       0.73 f
+  mem_D/U3410/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5623/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3445/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[5] (memo_Data)                                 0.00       4.56 f
+  reg_F_src/B[5] (mux4)                                   0.00       4.56 f
+  reg_F_src/U20/QN (AOI22X1)                              0.36       4.92 r
+  reg_F_src/U77/QN (NAND2X1)                              0.16       5.08 f
+  reg_F_src/out[5] (mux4)                                 0.00       5.08 f
+  regester_memo/W_data[5] (reg_file)                      0.00       5.08 f
+  regester_memo/U2486/Q (AO22X1)                          0.45       5.53 f
+  regester_memo/memo_reg[0][5]/D (DFFX2)                  0.30       5.83 f
+  data arrival time                                                  5.83
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][5]/CLK (DFFX2)                0.00       4.97 r
+  library setup time                                     -0.24       4.73
+  data required time                                                 4.73
+  --------------------------------------------------------------------------
+  data required time                                                 4.73
+  data arrival time                                                 -5.83
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.10
+
+
+  Startpoint: mem_D/memo_reg[0][23]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][23]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][23]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][23]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U4082/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5618/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U4117/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[23] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[23] (mux4)                                  0.00       4.56 f
+  reg_F_src/U40/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U39/Q (AO221X1)                               0.29       5.12 f
+  reg_F_src/out[23] (mux4)                                0.00       5.12 f
+  regester_memo/W_data[23] (reg_file)                     0.00       5.12 f
+  regester_memo/U1095/Q (AO22X1)                          0.42       5.55 f
+  regester_memo/memo_reg[0][23]/D (DFFX1)                 0.32       5.87 f
+  data arrival time                                                  5.87
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][23]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.87
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.08
+
+
+  Startpoint: mem_D/memo_reg[0][19]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][19]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][19]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][19]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U3933/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5617/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3968/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[19] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[19] (mux4)                                  0.00       4.56 f
+  reg_F_src/U50/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U49/Q (AO221X1)                               0.29       5.12 f
+  reg_F_src/out[19] (mux4)                                0.00       5.12 f
+  regester_memo/W_data[19] (reg_file)                     0.00       5.12 f
+  regester_memo/U1091/Q (AO22X1)                          0.42       5.55 f
+  regester_memo/memo_reg[0][19]/D (DFFX1)                 0.32       5.87 f
+  data arrival time                                                  5.87
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][19]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.87
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.08
+
+
+  Startpoint: mem_D/memo_reg[0][16]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][16]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][16]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][16]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U3822/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5620/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3857/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[16] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[16] (mux4)                                  0.00       4.56 f
+  reg_F_src/U56/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U55/Q (AO221X1)                               0.29       5.12 f
+  reg_F_src/out[16] (mux4)                                0.00       5.12 f
+  regester_memo/W_data[16] (reg_file)                     0.00       5.12 f
+  regester_memo/U1088/Q (AO22X1)                          0.42       5.55 f
+  regester_memo/memo_reg[0][16]/D (DFFX1)                 0.32       5.87 f
+  data arrival time                                                  5.87
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][16]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.87
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.08
+
+
+  Startpoint: mem_D/memo_reg[0][15]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][15]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][15]/CLK (DFFX2)                       0.00 #     0.00 r
+  mem_D/memo_reg[0][15]/Q (DFFX2)                         0.73       0.73 f
+  mem_D/U3785/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U5616/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3820/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[15] (memo_Data)                                0.00       4.56 f
+  reg_F_src/B[15] (mux4)                                  0.00       4.56 f
+  reg_F_src/U58/Q (AO22X1)                                0.27       4.83 f
+  reg_F_src/U57/Q (AO221X1)                               0.29       5.12 f
+  reg_F_src/out[15] (mux4)                                0.00       5.12 f
+  regester_memo/W_data[15] (reg_file)                     0.00       5.12 f
+  regester_memo/U1087/Q (AO22X1)                          0.42       5.55 f
+  regester_memo/memo_reg[0][15]/D (DFFX1)                 0.32       5.87 f
+  data arrival time                                                  5.87
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][15]/CLK (DFFX1)               0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.87
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.08
+
+
+  Startpoint: mem_D/memo_reg[0][9]
+              (rising edge-triggered flip-flop clocked by clock_func)
+  Endpoint: regester_memo/memo_reg[0][9]
+            (rising edge-triggered flip-flop clocked by clock_func)
+  Path Group: comp_paths
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  memo_Data          280000                saed90nm_max
+  mux4               8000                  saed90nm_max
+  reg_file           140000                saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock_func (rise edge)                            0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mem_D/memo_reg[0][9]/CLK (DFFX2)                        0.00 #     0.00 r
+  mem_D/memo_reg[0][9]/Q (DFFX2)                          0.73       0.73 f
+  mem_D/U3561/Q (AO221X1)                                 2.29       3.02 f
+  mem_D/U3568/QN (NOR4X0)                                 0.68       3.70 r
+  mem_D/U3597/QN (OAI221X1)                               0.86       4.56 f
+  mem_D/RD[9] (memo_Data)                                 0.00       4.56 f
+  reg_F_src/B[9] (mux4)                                   0.00       4.56 f
+  reg_F_src/U8/Q (AO22X1)                                 0.27       4.83 f
+  reg_F_src/U7/Q (AO221X1)                                0.29       5.12 f
+  reg_F_src/out[9] (mux4)                                 0.00       5.12 f
+  regester_memo/W_data[9] (reg_file)                      0.00       5.12 f
+  regester_memo/U1081/Q (AO22X1)                          0.42       5.55 f
+  regester_memo/memo_reg[0][9]/D (DFFX1)                  0.32       5.87 f
+  data arrival time                                                  5.87
+
+  clock clock_func (rise edge)                            5.00       5.00
+  clock network delay (ideal)                             0.00       5.00
+  clock uncertainty                                      -0.03       4.97
+  regester_memo/memo_reg[0][9]/CLK (DFFX1)                0.00       4.97 r
+  library setup time                                     -0.17       4.80
+  data required time                                                 4.80
+  --------------------------------------------------------------------------
+  data required time                                                 4.80
+  data arrival time                                                 -5.87
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.08
+
+
+1

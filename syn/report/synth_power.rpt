@@ -1,0 +1,79 @@
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : FullModule_RiscV
+Version: O-2018.06-SP1
+Date   : Wed Aug  6 02:16:05 2025
+****************************************
+
+
+Library(s) Used:
+
+    saed90nm_max (File: /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db)
+
+
+Operating Conditions: WORST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+FullModule_RiscV       ForQA             saed90nm_max
+MUX2_1                 ForQA             saed90nm_max
+MUX2_0                 ForQA             saed90nm_max
+PC_counter             8000              saed90nm_max
+instruction_ROM        ForQA             saed90nm_max
+RiscV_controller       8000              saed90nm_max
+reg_file               140000            saed90nm_max
+Extend                 8000              saed90nm_max
+MUX2_32b_0             8000              saed90nm_max
+ALU_32                 35000             saed90nm_max
+memo_Data              140000            saed90nm_max
+mux4                   8000              saed90nm_max
+ADDER_PC               8000              saed90nm_max
+Adder_Nbit             8000              saed90nm_max
+main_decoder           ForQA             saed90nm_max
+ALU_controller         ForQA             saed90nm_max
+MUX2_32b_1             8000              saed90nm_max
+Adder_Nbit_DW01_add_0  8000              saed90nm_max
+ADDER_PC_DW01_add_0    8000              saed90nm_max
+ALU_32_DW_rash_0       8000              saed90nm_max
+ALU_32_DW01_ash_0      8000              saed90nm_max
+ALU_32_DW01_sub_0      8000              saed90nm_max
+ALU_32_DW01_add_0      8000              saed90nm_max
+
+
+Global Operating Voltage = 0.7  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =   6.1038 uW    (6%)
+  Net Switching Power  =  98.9869 uW   (94%)
+                         ---------
+Total Dynamic Power    = 105.0907 uW  (100%)
+
+Cell Leakage Power     =   1.4870 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network  -2.2358e-02           97.1251        5.0060e+04           97.1528 (   6.10%)
+register       -6.5431e-02            0.2062        2.6607e+08          266.2103 (  16.72%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      6.1917            1.6556        1.2209e+09        1.2288e+03  (  77.18%)
+--------------------------------------------------------------------------------------------------
+Total              6.1039 uW        98.9869 uW     1.4870e+09 pW     1.5921e+03 uW
+1

@@ -1,0 +1,658 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/ICer/.synopsys_dv_prefs.tcl
+# ============= Setup ============== #
+set_host_options -max_cores 6 
+1
+set worst_case "saed90nm_max.db" ; 
+saed90nm_max.db
+#set H_worst_case "saed90nm_max_hvt.db"
+#set best_case "saed90nm_min.db"
+#set balanced_case "saed90nm_typ.db" 
+lappend search_path "/home/ICer/Downloads/Lib/synopsys/models"
+. /home/synopsys/syn/O-2018.06-SP1/libraries/syn /home/synopsys/syn/O-2018.06-SP1/minpower/syn /home/synopsys/syn/O-2018.06-SP1/dw/syn_ver /home/synopsys/syn/O-2018.06-SP1/dw/sim_ver /home/ICer/Downloads/Lib/synopsys/models
+set_app_var target_library [list $worst_case]  
+saed90nm_max.db
+set_app_var link_library "* $target_library"
+* saed90nm_max.db
+# --- work directory
+sh rm -rf work
+sh mkdir -p work
+define_design_lib work -path ./work 
+1
+set design FullModule_RiscV
+FullModule_RiscV
+set compile_top_all_paths true 
+true
+set_svf ${design}.svf 
+1
+analyze -format verilog -lib work  ../../rtl/${design}.v ;
+Running PRESTO HDLC
+Compiling source file ../../rtl/FullModule_RiscV.v
+Opening include file ../../rtl/Adder_Nbit.v
+Opening include file ../../rtl/ALU_32.v
+Opening include file ../../rtl/ALU_controller.v
+Opening include file ../../rtl/Extend.v
+Opening include file ../../rtl/instruction_ROM.v
+Opening include file ../../rtl/main_decoder.v
+Warning:  ../../rtl/instruction_ROM.v:9: The statements in initial blocks are ignored. (VER-281)
+Opening include file ../../rtl/memo_Data.v
+Opening include file ../../rtl/mux4.v
+Warning:  ../../rtl/memo_Data.v:11: The statements in initial blocks are ignored. (VER-281)
+Opening include file ../../rtl/MUX2_32b.v
+Opening include file ../../rtl/PC_counter.v
+Opening include file ../../rtl/reg_file.v
+Opening include file ../../rtl/RiscV_controller.v
+Opening include file ../../rtl/MUX2.v
+Presto compilation completed successfully.
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+1
+elaborate $design -lib work ; width mismatch} 
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'saed90nm_max'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'FullModule_RiscV'.
+Information: Building the design 'MUX2'. (HDL-193)
+
+Statistics for case statements in always block at line 7 in file
+	'../../rtl/MUX2.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            8             |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'PC_counter'. (HDL-193)
+
+Inferred memory devices in process
+	in routine PC_counter line 12 in file
+		'../../rtl/PC_counter.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     pc_reg_reg      | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'instruction_ROM'. (HDL-193)
+Statistics for MUX_OPs
+=======================================================
+| block name/line   | Inputs | Outputs | # sel inputs |
+=======================================================
+| instruction_ROM/8 |   64   |    1    |      6       |
+=======================================================
+Presto compilation completed successfully.
+Information: Building the design 'RiscV_controller'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'reg_file'. (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_file line 15 in file
+		'../../rtl/reg_file.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      memo_reg       | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|   reg_file/12    |   32   |   32    |      5       |
+|   reg_file/13    |   32   |   32    |      5       |
+======================================================
+Presto compilation completed successfully.
+Information: Building the design 'Extend'. (HDL-193)
+
+Statistics for case statements in always block at line 10 in file
+	'../../rtl/Extend.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            11            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX2_32b'. (HDL-193)
+
+Statistics for case statements in always block at line 7 in file
+	'../../rtl/MUX2_32b.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            8             |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'ALU_32'. (HDL-193)
+Warning:  ../../rtl/ALU_32.v:26: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 12 in file
+	'../../rtl/ALU_32.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            14            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'memo_Data'. (HDL-193)
+
+Inferred memory devices in process
+	in routine memo_Data line 16 in file
+		'../../rtl/memo_Data.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      memo_reg       | Flip-flop |  64   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|   memo_Data/15   |   64   |   32    |      6       |
+======================================================
+Presto compilation completed successfully.
+Information: Building the design 'mux4'. (HDL-193)
+
+Statistics for case statements in always block at line 9 in file
+	'../../rtl/mux4.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            10            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'Adder_Nbit'. (HDL-193)
+Presto compilation completed successfully.
+Error: Can't find inout port 'B' on reference to 'Adder_Nbit' in 'FullModule_RiscV'. (LINK-1)
+Error: Unable to match ports of cell PC_p4 ('Adder_Nbit') to 'ADDER_NBIT'. (LINK-25)
+Error: Can't find inout port 'B' on reference to 'Adder_Nbit' in 'FullModule_RiscV'. (LINK-1)
+Error: Unable to match ports of cell pc_target ('Adder_Nbit') to 'ADDER_NBIT'. (LINK-25)
+Information: Building the design 'main_decoder'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'ALU_controller'. (HDL-193)
+
+Statistics for case statements in always block at line 26 in file
+	'../../rtl/ALU_controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            27            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Error: extra characters after close-brace
+	Use error_info for more info. (CMD-013)
+current_design  
+Current design is 'FullModule_RiscV'.
+{FullModule_RiscV}
+check_design
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Tue Aug  5 19:30:46 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                    163
+    Unconnected ports (LINT-28)                                    84
+    Feedthrough (LINT-29)                                          19
+    Shorted outputs (LINT-31)                                      35
+    Constant outputs (LINT-52)                                     25
+
+Cells                                                              38
+    Cells do not drive (LINT-1)                                     5
+    Connected to power or ground (LINT-32)                         32
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Designs                                                             1
+    Design has no outputs ports (LINT-25)                           1
+
+Nets                                                                1
+    Multiply driven net with constant driver (LINT-54)              1
+
+Tristate                                                           29
+    A tristate bus has a non tri-state driver (LINT-34)            29
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_32', cell 'B_8' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_32', cell 'B_9' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_32', cell 'B_10' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_32', cell 'B_11' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_32', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: Design 'FullModule_RiscV' does not have any output ports. (LINT-25)
+Warning: In design 'PC_counter', port 'PC_next[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'main_decoder', port 'OP[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'main_decoder', port 'OP[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[20]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[21]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[22]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[23]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[24]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[25]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[26]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[27]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[28]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[29]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[30]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[31]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[23]' is connected directly to output port 'immEXT[10]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[22]' is connected directly to output port 'immEXT[9]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[21]' is connected directly to output port 'immEXT[8]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[20]' is connected directly to output port 'immEXT[7]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[19]' is connected directly to output port 'immEXT[6]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[18]' is connected directly to output port 'immEXT[5]'. (LINT-29)
+Warning: In design 'main_decoder', input port 'OP[4]' is connected directly to output port 'ALU_op[1]'. (LINT-29)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[0]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[1]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[9]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[10]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[11]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[12]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[13]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[14]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[15]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[16]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[17]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[18]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[19]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[20]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[21]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[22]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[23]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[24]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[25]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[26]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[27]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[28]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[29]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[30]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[20]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[21]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[22]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[23]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[24]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[25]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[26]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[27]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[28]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[29]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[30]'. (LINT-31)
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[31]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[30]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[29]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[28]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[27]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[26]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[25]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[24]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[23]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[22]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[21]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[20]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[19]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[18]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[17]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[16]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[15]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[14]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[13]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[12]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[11]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[10]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[9]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[8]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[7]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[6]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[5]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[4]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[3]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[2]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[1]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[0]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', the same net is connected to more than one pin on submodule 'reg_F_src'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'D[31]', 'D[30]'', 'D[29]', 'D[28]', 'D[27]', 'D[26]', 'D[25]', 'D[24]', 'D[23]', 'D[22]', 'D[21]', 'D[20]', 'D[19]', 'D[18]', 'D[17]', 'D[16]', 'D[15]', 'D[14]', 'D[13]', 'D[12]', 'D[11]', 'D[10]', 'D[9]', 'D[8]', 'D[7]', 'D[6]', 'D[5]', 'D[4]', 'D[3]', 'D[2]', 'D[1]', 'D[0]'.
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[0]' has non three-state driver 'ex_imm/C37/Z_0'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[1]' has non three-state driver 'ex_imm/C37/Z_1'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[2]' has non three-state driver 'ex_imm/C37/Z_2'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[3]' has non three-state driver 'ex_imm/C37/Z_3'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[4]' has non three-state driver 'ex_imm/C37/Z_4'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[5]' has non three-state driver 'ISA/B_11/Z'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[6]' has non three-state driver 'ISA/B_10/Z'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[7]' has non three-state driver 'ISA/B_9/Z'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[8]' has non three-state driver 'ISA/B_8/Z'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[9]' has non three-state driver 'ISA/B_7/Z'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[10]' has non three-state driver 'ISA/B_6/Z'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[11]' has non three-state driver 'ex_imm/C37/Z_5'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[12]' has non three-state driver 'ex_imm/C37/Z_6'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[13]' has non three-state driver 'ex_imm/C37/Z_7'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[14]' has non three-state driver 'ex_imm/C37/Z_8'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[15]' has non three-state driver 'ex_imm/C37/Z_9'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[16]' has non three-state driver 'ex_imm/C37/Z_10'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[17]' has non three-state driver 'ex_imm/C37/Z_11'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[18]' has non three-state driver 'ex_imm/C37/Z_12'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[19]' has non three-state driver 'ex_imm/C37/Z_13'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'immEXT[20]' has non three-state driver 'ISA/C37/Z_0'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'PC[0]' has non three-state driver 'counter/U2/**logic_0**'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'PC[2]' has non three-state driver 'counter/pc_reg_reg[0]/Q'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'PC[3]' has non three-state driver 'counter/pc_reg_reg[1]/Q'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'PC[4]' has non three-state driver 'counter/pc_reg_reg[2]/Q'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'PC[5]' has non three-state driver 'counter/pc_reg_reg[3]/Q'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'PC[6]' has non three-state driver 'counter/pc_reg_reg[4]/Q'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'PC[7]' has non three-state driver 'counter/pc_reg_reg[5]/Q'. (LINT-34)
+Warning: In design 'FullModule_RiscV', three-state bus 'PC[8]' has non three-state driver 'counter/pc_reg_reg[6]/Q'. (LINT-34)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[30]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[29]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[28]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[27]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[26]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[25]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[24]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[23]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[22]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[21]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[20]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[19]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[18]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[17]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[16]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[15]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[14]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[13]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[12]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[11]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[10]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[9]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[0]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'FullModule_RiscV', multiply-driven net 'PC[0]' is driven by constant 0. (LINT-54)
+1
+# =========== Constraints ========== #
+source ../cons/cons.tcl 
+Warning: No output ports on design 'FullModule_RiscV'. (UID-17)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Current design is 'FullModule_RiscV'.
+Current design is 'FullModule_RiscV'.
+Warning: No output ports on design 'FullModule_RiscV'. (UID-17)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+1
+set_fix_multiple_port_nets -all -buffer_constants
+1
+link  ; 
+
+  Linking design 'FullModule_RiscV'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (14 designs)              /mnt/hgfs/D/RiscV_pnr/syn/output/FullModule_RiscV.db, etc
+  saed90nm_max (library)      /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db
+
+Information: Building the design 'Adder_Nbit'. (HDL-193)
+Presto compilation completed successfully.
+Warning: Design 'ADDER_NBIT' was renamed to 'ADDER_NBIT_1' to avoid
+	a conflict with another design that has the same name but
+different parameters. (LINK-17)
+Error: Can't find inout port 'B' on reference to 'Adder_Nbit' in 'FullModule_RiscV'. (LINK-1)
+Error: Unable to match ports of cell PC_p4 ('Adder_Nbit') to 'ADDER_NBIT_1'. (LINK-25)
+Error: Can't find inout port 'B' on reference to 'Adder_Nbit' in 'FullModule_RiscV'. (LINK-1)
+Error: Unable to match ports of cell pc_target ('Adder_Nbit') to 'ADDER_NBIT_1'. (LINK-25)
+0
+compile -map_effort high    
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 232 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX2_32b_0'
+  Processing 'mux4'
+  Processing 'memo_Data'
+  Processing 'ALU_32'
+  Processing 'Extend'
+  Processing 'reg_file'
+  Processing 'ALU_controller'
+  Processing 'main_decoder'
+  Processing 'RiscV_controller'
+  Processing 'instruction_ROM'
+  Processing 'PC_counter'
+  Processing 'MUX2_0'
+  Processing 'MUX2_1'
+  Processing 'FullModule_RiscV'
+Information: Building the design 'Adder_Nbit'. (HDL-193)
+Presto compilation completed successfully.
+Warning: Design 'ADDER_NBIT' was renamed to 'ADDER_NBIT_2' to avoid
+	a conflict with another design that has the same name but
+different parameters. (LINK-17)
+Error: Can't find inout port 'B' on reference to 'Adder_Nbit' in 'FullModule_RiscV'. (LINK-1)
+Error: Unable to match ports of cell PC_p4 ('Adder_Nbit') to 'ADDER_NBIT_2'. (LINK-25)
+Error: Can't find inout port 'B' on reference to 'Adder_Nbit' in 'FullModule_RiscV'. (LINK-1)
+Error: Unable to match ports of cell pc_target ('Adder_Nbit') to 'ADDER_NBIT_2'. (LINK-25)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'ALU_32_DW_rash_0'
+  Processing 'ALU_32_DW01_ash_0'
+  Processing 'ALU_32_DW01_cmp2_0'
+  Processing 'ALU_32_DW01_sub_0'
+  Processing 'ALU_32_DW01_add_0'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:06   68344.9    111.32    3690.5   18357.3                          
+    0:00:06   68344.9    111.32    3690.5   18357.3                          
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+Warning: The pin ex_imm/immEXT[31] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[30] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[29] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[28] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[27] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[26] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[25] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[24] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[23] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[22] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[21] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[20] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[10] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[9] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[8] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[7] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[6] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+Warning: The pin ex_imm/immEXT[5] is excluded from MPN fixing because
+	it is driving a multi-driven net. (OPT-164)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:11   88598.9      7.56     296.3   20370.9                          
+    0:00:12   89544.5      7.72     342.7   22115.9                          
+    0:00:12   89544.5      7.72     342.7   22115.9                          
+    0:00:12   89544.5      7.72     342.7   22115.9                          
+    0:00:12   89544.5      7.72     342.7   22115.9                          
+    0:00:14   78948.9      7.72     299.4   16393.3                          
+    0:00:14   78944.3      7.72     299.4   16383.7                          
+    0:00:14   78936.9      7.72     299.4   16353.1                          
+    0:00:14   78936.9      7.72     299.4   16353.1                          
+    0:00:14   78936.9      7.72     299.4   16353.1                          
+    0:00:14   78936.9      7.72     299.4   16353.1                          
+    0:00:14   78936.9      7.72     299.4   16353.1                          
+    0:01:00   78708.3      7.72     299.4   16314.9                          
+    0:01:47   78523.1      7.72     299.4   16208.7                          
