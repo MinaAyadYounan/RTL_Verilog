@@ -1,0 +1,111 @@
+ 
+****************************************
+Report : DFT signals
+Design : FullModule_RiscV
+Version: O-2018.06-SP1
+Date   : Wed Aug  6 04:03:41 2025
+****************************************
+
+========================================
+TEST MODE: all_dft_user
+VIEW     : Existing DFT
+========================================
+Port               SignalType          Active    Hookup    Timing    Usage
+----------         ----------          ------    ------    ------    -----
+scan_rst           Reset               1         -         P 100.0 R 45.0 F 55.0
+Test_Mode          TestMode            1         -
+scan_clk           ScanMasterClock     1         -         P 100.0 R 45.0 F 55.0
+scan_clk           MasterClock         1         -         P 100.0 R 45.0 F 55.0
+========================================
+TEST MODE: all_dft_protocol
+VIEW     : Existing DFT
+========================================
+Port               SignalType          Active    Hookup    Timing    Usage
+----------         ----------          ------    ------    ------    -----
+scan_rst           Reset               1         -         P 100.0 R 45.0 F 55.0
+Test_Mode          TestMode            1         -
+scan_clk           ScanMasterClock     1         -         P 100.0 R 45.0 F 55.0
+scan_clk           MasterClock         1         -         P 100.0 R 45.0 F 55.0
+========================================
+TEST MODE: all_dft
+VIEW     : Existing DFT
+========================================
+Port               SignalType          Active    Hookup    Timing    Usage
+----------         ----------          ------    ------    ------    -----
+scan_rst           Reset               1         -         P 100.0 R 45.0 F 55.0
+Test_Mode          TestMode            1         -
+scan_clk           ScanMasterClock     1         -         P 100.0 R 45.0 F 55.0
+scan_clk           MasterClock         1         -         P 100.0 R 45.0 F 55.0
+========================================
+TEST MODE: Internal_scan_user
+VIEW     : Existing DFT
+========================================
+Port               SignalType          Active    Hookup    Timing    Usage
+----------         ----------          ------    ------    ------    -----
+scan_rst           Reset               1         -         P 100.0 R 45.0 F 55.0
+Test_Mode          TestMode            1         -
+scan_clk           ScanMasterClock     1         -         P 100.0 R 45.0 F 55.0
+scan_clk           MasterClock         1         -         P 100.0 R 45.0 F 55.0
+========================================
+TEST MODE: Internal_scan_protocol
+VIEW     : Existing DFT
+========================================
+Port               SignalType          Active    Hookup    Timing    Usage
+----------         ----------          ------    ------    ------    -----
+scan_rst           Reset               1         -         P 100.0 R 45.0 F 55.0
+Test_Mode          TestMode            1         -
+scan_clk           ScanMasterClock     1         -         P 100.0 R 45.0 F 55.0
+scan_clk           MasterClock         1         -         P 100.0 R 45.0 F 55.0
+========================================
+TEST MODE: Internal_scan
+VIEW     : Existing DFT
+========================================
+Port               SignalType          Active    Hookup    Timing    Usage
+----------         ----------          ------    ------    ------    -----
+scan_rst           Reset               1         -         P 100.0 R 45.0 F 55.0
+Test_Mode          TestMode            1         -
+scan_clk           ScanMasterClock     1         -         P 100.0 R 45.0 F 55.0
+scan_clk           MasterClock         1         -         P 100.0 R 45.0 F 55.0
+scan_out_5         ScanDataOut         -         -
+scan_out_4         ScanDataOut         -         -
+scan_out_3         ScanDataOut         -         -
+scan_out_2         ScanDataOut         -         -
+scan_out_1         ScanDataOut         -         -
+scan_in_5          ScanDataIn          -         -
+scan_in_4          ScanDataIn          -         -
+scan_in_3          ScanDataIn          -         -
+scan_in_2          ScanDataIn          -         -
+scan_in_1          ScanDataIn          -         -
+scan_en            ScanEnable          1         -
+========================================
+TEST MODE: Mission_mode_user
+VIEW     : Existing DFT
+========================================
+Port               SignalType          Active    Hookup    Timing    Usage
+----------         ----------          ------    ------    ------    -----
+scan_rst           Reset               1         -         P 100.0 R 45.0 F 55.0
+Test_Mode          TestMode            1         -
+scan_clk           ScanMasterClock     1         -         P 100.0 R 45.0 F 55.0
+scan_clk           MasterClock         1         -         P 100.0 R 45.0 F 55.0
+========================================
+TEST MODE: Mission_mode_protocol
+VIEW     : Existing DFT
+========================================
+Port               SignalType          Active    Hookup    Timing    Usage
+----------         ----------          ------    ------    ------    -----
+scan_rst           Reset               1         -         P 100.0 R 45.0 F 55.0
+Test_Mode          TestMode            1         -
+scan_clk           ScanMasterClock     1         -         P 100.0 R 45.0 F 55.0
+scan_clk           MasterClock         1         -         P 100.0 R 45.0 F 55.0
+========================================
+TEST MODE: Mission_mode
+VIEW     : Existing DFT
+========================================
+Port               SignalType          Active    Hookup    Timing    Usage
+----------         ----------          ------    ------    ------    -----
+scan_rst           Reset               1         -         P 100.0 R 45.0 F 55.0
+Test_Mode          TestMode            1         -
+scan_clk           ScanMasterClock     1         -         P 100.0 R 45.0 F 55.0
+scan_clk           MasterClock         1         -         P 100.0 R 45.0 F 55.0
+
+1

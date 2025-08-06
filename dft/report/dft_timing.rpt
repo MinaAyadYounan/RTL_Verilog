@@ -1,0 +1,72 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'FullModule_RiscV' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Warning: Clock port 'scan_clk' is assigned input delay relative to clock 'clock_func'. (TIM-111)
+Warning: Clock port 'scan_clk' is assigned input delay relative to clock 'clock_func'. (TIM-111)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : FullModule_RiscV
+Version: O-2018.06-SP1
+Date   : Wed Aug  6 04:02:58 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: WORST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+
+  Startpoint: counter/pc_reg_reg_2_
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: counter/pc_reg_reg_6_
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FullModule_RiscV   ForQA                 saed90nm_max
+  ADDER_PC_DW01_add_0
+                     8000                  saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock scan_clk (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  counter/pc_reg_reg_2_/CLK (SDFFARX2)                    0.00 #     0.00 r
+  counter/pc_reg_reg_2_/Q (SDFFARX2)                      0.79       0.79 f
+  counter/PC[4] (PC_counter)                              0.00       0.79 f
+  PC_4/A[4] (ADDER_PC)                                    0.00       0.79 f
+  PC_4/add_6/A[4] (ADDER_PC_DW01_add_0)                   0.00       0.79 f
+  PC_4/add_6/U30/Z (DELLN2X2)                             2.20       2.99 f
+  PC_4/add_6/U6/Q (AND2X1)                                0.50       3.49 f
+  PC_4/add_6/U7/Q (AND2X1)                                0.36       3.85 f
+  PC_4/add_6/U8/Q (AND2X1)                                0.37       4.22 f
+  PC_4/add_6/U10/Q (AND2X1)                               0.35       4.57 f
+  PC_4/add_6/U42/ZN (INVX0)                               0.24       4.81 r
+  PC_4/add_6/U43/ZN (INVX0)                               0.12       4.93 f
+  PC_4/add_6/U49/Q (XOR2X2)                               0.39       5.32 f
+  PC_4/add_6/SUM[8] (ADDER_PC_DW01_add_0)                 0.00       5.32 f
+  PC_4/B[8] (ADDER_PC)                                    0.00       5.32 f
+  PC_mux/A[8] (MUX2_32b_1)                                0.00       5.32 f
+  PC_mux/U3/Q (AO22X1)                                    0.40       5.71 f
+  PC_mux/C[8] (MUX2_32b_1)                                0.00       5.71 f
+  counter/PC_next[8] (PC_counter)                         0.00       5.71 f
+  counter/pc_reg_reg_6_/D (SDFFARX2)                      0.03       5.74 f
+  data arrival time                                                  5.74
+
+  clock scan_clk (rise edge)                            100.00     100.00
+  clock network delay (ideal)                             0.00     100.00
+  counter/pc_reg_reg_6_/CLK (SDFFARX2)                    0.00     100.00 r
+  library setup time                                     -0.66      99.34
+  data required time                                                99.34
+  --------------------------------------------------------------------------
+  data required time                                                99.34
+  data arrival time                                                 -5.74
+  --------------------------------------------------------------------------
+  slack (MET)                                                       93.60
+
+
+1

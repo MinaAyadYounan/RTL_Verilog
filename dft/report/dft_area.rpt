@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : FullModule_RiscV
+Version: O-2018.06-SP1
+Date   : Wed Aug  6 04:03:41 2025
+****************************************
+
+Library(s) Used:
+
+    saed90nm_max (File: /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db)
+
+Number of ports:                         1639
+Number of nets:                         28791
+Number of cells:                        24320
+Number of combinational cells:          21114
+Number of sequential cells:              3184
+Number of macros/black boxes:               0
+Number of buf/inv:                      13305
+Number of references:                      16
+
+Combinational area:             255167.997167
+Buf/Inv area:                   171896.829733
+Noncombinational area:           92726.783493
+Macro/Black Box area:                0.000000
+Net Interconnect area:           12071.220994
+
+Total cell area:                347894.780660
+Total area:                     359966.001654
+1
