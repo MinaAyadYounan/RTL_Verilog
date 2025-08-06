@@ -1,0 +1,938 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/ICer/.synopsys_dv_prefs.tcl
+# ============= Setup ============== #
+set_host_options -max_cores 6 
+1
+set worst_case "saed90nm_max.db" ; 
+saed90nm_max.db
+#set H_worst_case "saed90nm_max_hvt.db"
+#set best_case "saed90nm_min.db"
+#set balanced_case "saed90nm_typ.db" 
+lappend search_path "/home/ICer/Downloads/Lib/synopsys/models"
+. /home/synopsys/syn/O-2018.06-SP1/libraries/syn /home/synopsys/syn/O-2018.06-SP1/minpower/syn /home/synopsys/syn/O-2018.06-SP1/dw/syn_ver /home/synopsys/syn/O-2018.06-SP1/dw/sim_ver /home/ICer/Downloads/Lib/synopsys/models
+set_app_var target_library [list $worst_case]  
+saed90nm_max.db
+set_app_var link_library "* $target_library"
+* saed90nm_max.db
+# --- work directory
+sh rm -rf work
+sh mkdir -p work
+define_design_lib work -path ./work 
+1
+set design FullModule_RiscV
+FullModule_RiscV
+set compile_top_all_paths true 
+true
+set_svf ${design}.svf 
+1
+analyze -format verilog -lib work  ../../rtl/${design}.v ;
+Running PRESTO HDLC
+Compiling source file ../../rtl/FullModule_RiscV.v
+Opening include file ../../rtl/Adder_Nbit.v
+Opening include file ../../rtl/ALU_32.v
+Opening include file ../../rtl/ALU_controller.v
+Opening include file ../../rtl/Extend.v
+Opening include file ../../rtl/instruction_ROM.v
+Opening include file ../../rtl/main_decoder.v
+Warning:  ../../rtl/instruction_ROM.v:9: The statements in initial blocks are ignored. (VER-281)
+Opening include file ../../rtl/memo_Data.v
+Opening include file ../../rtl/mux4.v
+Warning:  ../../rtl/memo_Data.v:11: The statements in initial blocks are ignored. (VER-281)
+Opening include file ../../rtl/MUX2_32b.v
+Opening include file ../../rtl/PC_counter.v
+Opening include file ../../rtl/reg_file.v
+Opening include file ../../rtl/RiscV_controller.v
+Opening include file ../../rtl/MUX2.v
+Opening include file ../../rtl/ADDER_PC.v
+Presto compilation completed successfully.
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+1
+elaborate $design -lib work ; width mismatch} 
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'saed90nm_max'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'FullModule_RiscV'.
+Information: Building the design 'MUX2'. (HDL-193)
+
+Statistics for case statements in always block at line 7 in file
+	'../../rtl/MUX2.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            8             |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'PC_counter'. (HDL-193)
+
+Inferred memory devices in process
+	in routine PC_counter line 12 in file
+		'../../rtl/PC_counter.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     pc_reg_reg      | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'instruction_ROM'. (HDL-193)
+Statistics for MUX_OPs
+=======================================================
+| block name/line   | Inputs | Outputs | # sel inputs |
+=======================================================
+| instruction_ROM/8 |   64   |    1    |      6       |
+=======================================================
+Presto compilation completed successfully.
+Information: Building the design 'RiscV_controller'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'reg_file'. (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_file line 15 in file
+		'../../rtl/reg_file.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      memo_reg       | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|   reg_file/12    |   32   |   32    |      5       |
+|   reg_file/13    |   32   |   32    |      5       |
+======================================================
+Presto compilation completed successfully.
+Information: Building the design 'Extend'. (HDL-193)
+
+Statistics for case statements in always block at line 10 in file
+	'../../rtl/Extend.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            11            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'MUX2_32b'. (HDL-193)
+
+Statistics for case statements in always block at line 7 in file
+	'../../rtl/MUX2_32b.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            8             |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'ALU_32'. (HDL-193)
+Warning:  ../../rtl/ALU_32.v:20: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 19 in file
+	'../../rtl/ALU_32.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            20            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'memo_Data'. (HDL-193)
+
+Inferred memory devices in process
+	in routine memo_Data line 16 in file
+		'../../rtl/memo_Data.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      memo_reg       | Flip-flop | 2048  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|   memo_Data/15   |   64   |   32    |      6       |
+======================================================
+Presto compilation completed successfully.
+Information: Building the design 'mux4'. (HDL-193)
+
+Statistics for case statements in always block at line 9 in file
+	'../../rtl/mux4.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            10            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'ADDER_PC'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'Adder_Nbit'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'main_decoder'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'ALU_controller'. (HDL-193)
+
+Statistics for case statements in always block at line 26 in file
+	'../../rtl/ALU_controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            27            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Error: extra characters after close-brace
+	Use error_info for more info. (CMD-013)
+current_design  
+Current design is 'FullModule_RiscV'.
+{FullModule_RiscV}
+check_design
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Wed Aug  6 02:13:27 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                    158
+    Unconnected ports (LINT-28)                                    79
+    Feedthrough (LINT-29)                                          19
+    Shorted outputs (LINT-31)                                      35
+    Constant outputs (LINT-52)                                     25
+
+Cells                                                              33
+    Connected to power or ground (LINT-32)                         32
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Designs                                                             1
+    Design has no outputs ports (LINT-25)                           1
+--------------------------------------------------------------------------------
+
+Warning: Design 'FullModule_RiscV' does not have any output ports. (LINT-25)
+Warning: In design 'PC_counter', port 'PC_next[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'PC_counter', port 'PC_next[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'instruction_ROM', port 'Address[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'memo_Data', port 'Addr[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'main_decoder', port 'OP[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'main_decoder', port 'OP[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[20]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[21]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[22]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[23]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[24]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[25]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[26]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[27]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[28]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[29]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[30]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[24]' is connected directly to output port 'immEXT[31]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[23]' is connected directly to output port 'immEXT[10]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[22]' is connected directly to output port 'immEXT[9]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[21]' is connected directly to output port 'immEXT[8]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[20]' is connected directly to output port 'immEXT[7]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[19]' is connected directly to output port 'immEXT[6]'. (LINT-29)
+Warning: In design 'Extend', input port 'imm[18]' is connected directly to output port 'immEXT[5]'. (LINT-29)
+Warning: In design 'main_decoder', input port 'OP[4]' is connected directly to output port 'ALU_op[1]'. (LINT-29)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[0]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[1]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[9]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[10]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[11]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[12]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[13]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[14]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[15]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[16]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[17]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[18]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[19]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[20]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[21]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[22]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[23]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[24]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[25]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[26]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[27]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[28]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[29]'. (LINT-31)
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to output port 'PC[30]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[20]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[21]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[22]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[23]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[24]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[25]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[26]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[27]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[28]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[29]'. (LINT-31)
+Warning: In design 'Extend', output port 'immEXT[31]' is connected directly to output port 'immEXT[30]'. (LINT-31)
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[31]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[30]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[29]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[28]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[27]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[26]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[25]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[24]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[23]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[22]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[21]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[20]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[19]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[18]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[17]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[16]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[15]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[14]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[13]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[12]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[11]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[10]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[9]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[8]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[7]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[6]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[5]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[4]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[3]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[2]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[1]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', a pin on submodule 'reg_F_src' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'D[0]' is connected to logic 0. 
+Warning: In design 'FullModule_RiscV', the same net is connected to more than one pin on submodule 'reg_F_src'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'D[31]', 'D[30]'', 'D[29]', 'D[28]', 'D[27]', 'D[26]', 'D[25]', 'D[24]', 'D[23]', 'D[22]', 'D[21]', 'D[20]', 'D[19]', 'D[18]', 'D[17]', 'D[16]', 'D[15]', 'D[14]', 'D[13]', 'D[12]', 'D[11]', 'D[10]', 'D[9]', 'D[8]', 'D[7]', 'D[6]', 'D[5]', 'D[4]', 'D[3]', 'D[2]', 'D[1]', 'D[0]'.
+Warning: In design 'PC_counter', output port 'PC[31]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[30]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[29]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[28]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[27]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[26]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[25]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[24]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[23]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[22]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[21]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[20]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[19]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[18]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[17]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[16]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[15]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[14]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[13]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[12]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[11]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[10]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[9]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'PC_counter', output port 'PC[0]' is connected directly to 'logic 0'. (LINT-52)
+1
+# =========== Constraints ========== #
+source ../cons/cons.tcl 
+Current design is 'FullModule_RiscV'.
+Current design is 'FullModule_RiscV'.
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+1
+set_app_var compile_delete_unloaded_sequential_cells true
+true
+set_app_var hdlin_check_no_latch true
+true
+set_fix_multiple_port_nets -all -buffer_constants
+1
+link  ; 
+
+  Linking design 'FullModule_RiscV'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (15 designs)              /mnt/hgfs/D/RiscV_pnr/syn/run/FullModule_RiscV.db, etc
+  saed90nm_max (library)      /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db
+
+1
+compile -map_effort high    
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 192 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'MUX2_32b_0'
+  Processing 'Adder_Nbit'
+  Processing 'ADDER_PC'
+  Processing 'mux4'
+  Processing 'memo_Data'
+  Processing 'ALU_32'
+  Processing 'Extend'
+  Processing 'reg_file'
+  Processing 'ALU_controller'
+  Processing 'main_decoder'
+  Processing 'RiscV_controller'
+  Processing 'instruction_ROM'
+  Processing 'PC_counter'
+  Processing 'MUX2_0'
+  Processing 'MUX2_1'
+  Processing 'FullModule_RiscV'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'Adder_Nbit_DW01_add_0'
+  Processing 'ADDER_PC_DW01_add_0'
+  Processing 'ALU_32_DW_rash_0'
+  Processing 'ALU_32_DW01_ash_0'
+  Processing 'ALU_32_DW01_cmp2_0'
+  Processing 'ALU_32_DW01_sub_0'
+  Processing 'ALU_32_DW01_add_0'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:11  158612.9    113.13    3748.6   29002.4                          
+    0:00:11  158612.9    113.13    3748.6   29002.4                          
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:15  198392.8      5.69     310.6   21695.2                          
+    0:00:15  198392.8      5.69     310.6   21695.2                          
+    0:00:24  321808.0      1.34     372.5    5877.0                          
+    0:00:24  321808.0      1.34     372.5    5877.0                          
+    0:00:24  321808.0      1.34     372.5    5877.0                          
+    0:00:24  321811.7      1.34     372.5    5877.1                          
+    0:00:25  321811.7      1.34     372.5    5877.1                          
+    0:00:27  316756.7      1.34     366.0    4210.2                          
+    0:00:27  316856.2      1.34     363.4    4181.6                          
+    0:00:27  316848.8      1.33     363.4    4170.9                          
+    0:00:27  316848.8      1.33     363.4    4170.9                          
+    0:00:27  316848.8      1.33     363.4    4170.9                          
+    0:00:27  316848.8      1.33     363.4    4170.9                          
+    0:00:27  316848.8      1.33     363.4    4170.9                          
+    0:00:49  316722.6      1.33     355.9    4013.2                          
+    0:01:11  316761.3      1.90     356.5    4009.9                          
+    0:01:12  316740.1      1.92     356.4    4010.9                          
+    0:01:13  316728.1      1.92     356.4    4011.1                          
+    0:01:13  316731.8      1.92     356.3    4012.1                          
+    0:01:13  316727.2      1.92     356.3    4013.5                          
+    0:01:13  316717.1      1.92     356.3    4015.1                          
+    0:01:14  316717.1      1.92     356.3    4015.1                          
+    0:01:14  316717.1      1.92     356.3    4015.1                          
+    0:01:14  316717.1      1.92     356.3    4015.1                          
+    0:01:14  316717.1      0.58     354.3    4015.8                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:14  316717.1      0.58     354.3    4015.8                          
+    0:01:14  316426.7      0.58     354.2    4071.9                          
+    0:01:15  316415.7      0.58     354.6    4136.4                          
+    0:01:16  316363.2      0.58     354.8    4195.8                          
+    0:01:17  316366.8      0.58     354.8    4195.8                          
+    0:01:18  316361.3      0.58     355.3    4196.5                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:18  316361.3      0.58     355.3    4196.5                          
+    0:01:18  316376.1      0.58     355.3    4154.1 regester_memo/RD1[30]    
+    0:01:18  316348.4      0.58     355.3    4140.3 regester_memo/RD1[5]     
+    0:01:19  316440.6      0.58     355.3    4122.2 regester_memo/net51770   
+    0:01:19  316777.0      0.58     355.3    4058.9 Alu_32b/net95219         
+    0:01:19  316847.9      0.58     355.3    4057.2 alu_src/net95247         
+    0:01:20  317026.7      0.58     355.3    4031.1 alu_src/net95270         
+    0:01:20  317411.0      0.58     355.3    3913.7 mem_D/n84                
+    0:01:20  317784.3      0.58     355.3    3812.0 mem_D/C4211/net72481     
+    0:01:20  318054.3      0.58     355.3    3739.9 Alu_32b/net72259         
+    0:01:21  318209.1      0.58     355.3    3686.6 mem_D/C4211/net72493     
+    0:01:21  318417.4      0.58     355.3    3629.4 mem_D/C4211/net72288     
+    0:01:21  318859.8      0.58     355.3    3546.4 mem_D/C4211/net72342     
+    0:01:21  319333.5      0.58     355.3    3454.2 Alu_32b/srl_17/net72537  
+    0:01:21  319666.2      0.58     355.3    3391.7 ex_imm/immEXT[1]         
+    0:01:22  319774.0      0.58     355.3    3387.5 ex_imm/net78296          
+    0:01:22  319807.2      0.58     355.3    3378.0 counter/PC[3]            
+    0:01:22  320105.8      0.58     355.3    3320.6 mem_D/C4211/net72434     
+    0:01:22  320200.7      0.58     355.3    3276.1 regester_memo/net95118   
+    0:01:22  320416.4      0.58     355.3    3214.3 Alu_32b/srl_17/net35240  
+    0:01:22  320788.7      0.58     355.3    3141.0 Alu_32b/srl_17/net35292  
+    0:01:23  321163.8      0.58     355.3    3097.1 mem_D/C4211/net72429     
+    0:01:23  321373.0      0.58     355.3    3084.2 Alu_32b/sub_10/net36092  
+    0:01:23  321592.3      0.58     355.3    3075.4 Alu_32b/sub_10/net36098  
+    0:01:23  321850.4      0.58     355.3    3050.2 regester_memo/net95142   
+    0:01:23  322042.1      0.58     354.4    3002.5 mem_D/C4211/net72299     
+    0:01:23  322373.8      0.58     354.4    2982.0 regester_memo/memo[0][9] 
+    0:01:24  322755.4      0.58     354.4    2960.3 regester_memo/net95141   
+    0:01:24  323309.3      0.58     354.4    2934.1 mem_D/net96012           
+    0:01:24  323873.3      0.58     354.4    2905.8 mem_D/net95716           
+    0:01:24  324404.1      0.58     354.4    2877.6 mem_D/C4211/net72414     
+    0:01:24  324780.1      0.58     354.3    2854.4 reg_F_src/out[30]        
+    0:01:27  325062.1      0.58     354.3    2840.8 Alu_32b/srl_17/net72533  
+    0:01:28  325078.7      0.58     353.7    2840.2 regester_memo/memo[1][0] 
+    0:01:28  325294.4      0.58     346.6    2831.3 regester_memo/memo[1][26]
+    0:01:28  325319.3      0.58     344.5    2828.3 regester_memo/memo[1][5] 
+    0:01:29  325534.0      0.58     344.4    2819.6 regester_memo/memo[31][11]
+    0:01:29  325575.5      0.58     343.0    2817.4 regester_memo/memo[31][23]
+    0:01:29  325622.5      0.58     341.8    2815.2 regester_memo/memo[27][3]
+    0:01:29  325674.1      0.58     340.9    2813.3 regester_memo/memo[27][15]
+    0:01:29  325715.6      0.58     339.5    2811.0 regester_memo/memo[27][27]
+    0:01:29  325767.2      0.58     338.6    2809.1 regester_memo/memo[23][7]
+    0:01:30  325820.6      0.58     337.6    2806.9 regester_memo/memo[23][19]
+    0:01:30  325861.2      0.58     336.2    2804.8 regester_memo/memo[23][31]
+    0:01:30  325918.3      0.58     335.6    2802.9 regester_memo/memo[19][10]
+    0:01:30  325965.3      0.58     334.4    2800.8 regester_memo/memo[19][22]
+    0:01:30  326006.8      0.58     333.0    2798.5 regester_memo/memo[15][3]
+    0:01:31  326063.0      0.58     332.4    2796.7 regester_memo/memo[15][13]
+    0:01:31  326103.5      0.58     331.1    2794.6 regester_memo/memo[15][25]
+    0:01:32  326155.2      0.58     330.2    2792.6 regester_memo/memo[11][5]
+    0:01:32  326195.7      0.58     328.8    2790.5 regester_memo/memo[11][17]
+    0:01:32  326242.7      0.58     327.6    2788.3 regester_memo/memo[11][30]
+    0:01:32  326287.9      0.58     326.6    2786.4 regester_memo/memo[7][9] 
+    0:01:33  326334.9      0.58     325.4    2784.2 regester_memo/memo[7][22]
+    0:01:33  326380.9      0.58     324.3    2782.2 regester_memo/memo[3][1] 
+    0:01:33  326432.6      0.58     323.4    2780.2 regester_memo/memo[3][13]
+    0:01:33  326473.1      0.58     322.1    2778.1 regester_memo/memo[3][25]
+    0:01:33  326665.7      0.56     320.8    2772.4 mem_D/net95372           
+    0:01:33  326813.2      0.56     320.7    2767.4 regester_memo/memo[27][7]
+    0:01:33  327136.7      0.56     320.7    2758.7 PC_4/add_6/net77358      
+    0:01:33  327430.7      0.56     320.7    2753.3 reg_F_src/out[31]        
+    0:01:34  327703.4      0.56     320.7    2738.5 Alu_32b/Result[24]       
+    0:01:34  327803.9      0.56     320.6    2736.0 regester_memo/net50802   
+    0:01:34  327820.5      0.56     320.6    2734.6 regester_memo/RD1[29]    
+    0:01:34  327799.3      0.56     320.6    2734.6 regester_memo/RD1[0]     
+    0:01:34  327781.8      0.56     320.6    2734.6 Alu_32b/net95237         
+    0:01:34  327780.9      0.56     320.6    2733.8 ex_imm/net78244          
+    0:01:34  327791.9      0.56     320.6    2731.4 pc_target/net78266       
+    0:01:35  328498.8      0.56     320.6    2698.5 Alu_32b/add_9/carry[30]  
+    0:01:35  330200.1      0.56     320.6    2643.9 Alu_32b/sub_10/carry[13] 
+    0:01:35  331901.3      0.56     320.6    2587.6 Alu_32b/sub_10/carry[26] 
+    0:01:35  333324.3      0.56     320.6    2544.0 pc_target/add_7/carry[13]
+    0:01:36  335025.6      0.56     320.6    2491.1 pc_target/add_7/carry[26]
+    0:01:36  335352.7      0.56     320.5    2475.9 reg_F_src/out[30]        
+    0:01:36  335406.2      0.56     320.2    2474.5 reg_F_src/out[10]        
+    0:01:37  335903.8      0.56     310.4    2454.1 regester_memo/memo[29][30]
+    0:01:37  336401.5      0.56     300.7    2433.8 regester_memo/memo[25][29]
+    0:01:37  336899.2      0.56     291.0    2413.4 regester_memo/memo[21][29]
+    0:01:37  337396.8      0.56     281.2    2393.1 regester_memo/memo[17][27]
+    0:01:38  337894.5      0.56     271.5    2372.7 regester_memo/memo[13][25]
+    0:01:38  338392.2      0.56     261.8    2352.4 regester_memo/memo[9][23]
+    0:01:38  338889.8      0.56     252.1    2332.0 regester_memo/memo[5][21]
+    0:01:38  339387.5      0.52     243.1    2312.3 regester_memo/memo[26][28]
+    0:01:39  339885.2      0.43     234.2    2295.1 regester_memo/memo[1][30]
+    0:01:39  340375.4      0.43     228.0    2280.7 regester_memo/memo[26][9]
+    0:01:39  340873.1      0.43     221.6    2266.5 regester_memo/memo[22][11]
+    0:01:39  341370.8      0.43     215.1    2252.4 regester_memo/memo[18][12]
+    0:01:39  341868.4      0.43     208.6    2238.2 regester_memo/memo[14][15]
+    0:01:39  342366.1      0.43     202.1    2224.0 regester_memo/memo[10][18]
+    0:01:39  342863.8      0.43     195.6    2209.9 regester_memo/memo[6][22]
+    0:01:39  343361.4      0.43     189.1    2195.7 regester_memo/memo[2][25]
+    0:01:40  343859.1      0.43     185.3    2181.5 regester_memo/memo[11][23]
+    0:01:40  344356.8      0.43     182.0    2167.4 regester_memo/memo[19][5]
+    0:01:40  344854.4      0.40     178.7    2153.3 regester_memo/memo[31][12]
+    0:01:40  345352.1      0.40     175.2    2139.1 regester_memo/memo[27][30]
+    0:01:41  345849.7      0.40     171.8    2125.0 regester_memo/memo[19][25]
+    0:01:41  346347.4      0.40     168.4    2110.8 regester_memo/memo[11][21]
+    0:01:41  346845.1      0.40     165.0    2096.7 regester_memo/memo[3][17]
+    0:01:41  347342.7      0.40     161.7    2082.8 regester_memo/memo[7][6] 
+    0:01:42  347720.6      0.40     159.7    2073.2 reg_F_src/out[3]         
+    0:01:42  347728.0      0.40     159.7    2072.0 Alu_32b/Result[20]       
+    0:01:42  347728.0      0.40     159.7    2070.9 Alu_32b/Result[22]       
+    0:01:42  347728.0      0.40     159.7    2069.8 Alu_32b/Result[20]       
+    0:01:42  347751.9      0.40     159.7    2068.6 regester_memo/net51618   
+    0:01:42  347710.5      0.40     159.7    2034.5 regester_memo/RD1[29]    
+    0:01:43  347940.9      0.38     159.7    1950.6 Alu_32b/A[26]            
+    0:01:43  348567.5      0.38     159.7    1775.1 Alu_32b/A[13]            
+    0:01:43  349194.2      0.38     159.7    1603.1 Alu_32b/A[11]            
+    0:01:43  349750.9      0.38     159.7    1439.1 mem_D/N11                
+    0:01:43  350303.8      0.38     159.7    1328.1 Alu_32b/B[10]            
+    0:01:44  350856.8      0.38     159.7    1218.1 Alu_32b/B[27]            
+    0:01:44  351166.5      0.38     159.7    1135.2 mem_D/N14                
+    0:01:44  351278.9      0.38     159.7    1081.7 Alu_32b/net106306        
+    0:01:44  351350.8      0.38     159.7    1034.9 Alu_32b/net106242        
+    0:01:44  351619.9      0.38     159.7     975.9 pc_target/add_7/B[9]     
+    0:01:44  351819.0      0.38     159.7     901.9 pc_target/add_7/B[21]    
+    0:01:44  351934.2      0.38     159.7     852.8 Alu_32b/net106564        
+    0:01:44  351813.4      0.38     159.7     852.8 Alu_32b/net106486        
+    0:01:44  351756.3      0.38     159.7     848.1 Alu_32b/sub_10/A[1]      
+    0:01:44  351779.3      0.38     159.7     837.5 Alu_32b/net106307        
+    0:01:44  351845.7      0.38     159.7     821.2 Alu_32b/srl_17/A[3]      
+    0:01:44  352321.2      0.38     159.7     779.4 Alu_32b/sub_10/A[15]     
+    0:01:45  352824.4      0.38     159.7     738.7 Alu_32b/add_9/B[1]       
+    0:01:45  353178.3      0.38     159.7     713.5 Alu_32b/sub_10/net96863  
+    0:01:45  353532.2      0.38     159.7     688.4 Alu_32b/sub_10/net96839  
+    0:01:45  354228.9      0.38     159.7     652.1 Alu_32b/add_9/carry[7]   
+    0:01:45  355497.1      0.38     159.7     597.4 Alu_32b/add_9/carry[15]  
+    0:01:45  356359.7      0.38     159.7     562.6 Alu_32b/add_9/carry[26]  
+    0:01:45  357152.3      0.38     159.7     528.4 Alu_32b/add_9/carry[21]  
+    0:01:46  357861.9      0.38     159.7     495.0 counter/net106402        
+    0:01:46  358072.9      0.38     159.7     460.1 Alu_32b/srl_17/A[21]     
+    0:01:46  358338.4      0.38     159.7     425.2 Alu_32b/srl_17/A[9]      
+    0:01:46  358598.2      0.38     159.7     392.4 Alu_32b/add_9/A[4]       
+    0:01:46  358659.1      0.38     159.7     375.8 Alu_32b/sub_10/net96874  
+    0:01:47  358776.1      0.38     159.7     355.7 mem_D/net106427          
+    0:01:47  358742.0      0.38     159.7     344.4 Alu_32b/A[21]            
+    0:01:47  358654.5      0.38     159.7     333.2 Alu_32b/A[11]            
+    0:01:47  358655.4      0.38     159.7     321.9 Alu_32b/A[1]             
+    0:01:47  358674.7      0.38     159.6     315.7 mem_D/net106409          
+    0:01:48  358684.9      0.38     159.6     306.9 Alu_32b/net106288        
+    0:01:48  358711.6      0.38     159.6     298.2 Alu_32b/net106329        
+    0:01:48  358739.2      0.38     159.5     295.0 regester_memo/W_data[13] 
+    0:01:48  358739.2      0.38     159.5     294.7 regester_memo/W_data[18] 
+    0:01:49  358743.9      0.38     159.5     293.9 Alu_32b/net106658        
+    0:01:49  358766.0      0.38     159.5     288.5 regester_memo/W_data[24] 
+    0:01:49  358704.2      0.38     159.5     285.3 Alu_32b/net106461        
+    0:01:49  358710.7      0.38     159.5     283.7 pc_target/add_7/net106770
+    0:01:49  358655.4      0.38     159.5     282.9 pc_target/add_7/net106846
+    0:01:49  358665.5      0.38     159.5     282.2 Alu_32b/net106575        
+    0:01:49  358716.2      0.38     159.5     278.8 pc_target/add_7/net106786
+    0:01:49  358660.9      0.38     159.5     278.1 pc_target/add_7/net106900
+    0:01:49  358655.4      0.37     159.1     278.1 regester_memo/memo_reg[30][1]/D
+    0:01:50  358517.1      0.32     151.0     278.1 regester_memo/memo_reg[3][31]/D
+    0:01:50  358378.9      0.32     142.9     278.1 regester_memo/memo_reg[19][9]/D
+    0:01:50  358240.7      0.32     134.9     278.1 regester_memo/memo_reg[27][11]/D
+    0:01:50  358185.4      0.27     130.8     277.1 regester_memo/memo_reg[0][8]/D
+    0:01:51  358065.6      0.24     126.0     277.1 regester_memo/memo_reg[29][20]/D
+    0:01:51  357927.3      0.24     120.1     277.1 regester_memo/memo_reg[25][14]/D
+    0:01:51  357789.1      0.24     114.1     277.1 regester_memo/memo_reg[21][8]/D
+    0:01:52  357650.8      0.24     108.2     277.1 regester_memo/memo_reg[17][2]/D
+    0:01:52  357512.6      0.24     102.2     277.1 regester_memo/memo_reg[17][27]/D
+    0:01:52  357374.4      0.24      96.3     277.1 regester_memo/memo_reg[13][20]/D
+    0:01:52  357236.1      0.24      90.3     277.1 regester_memo/memo_reg[9][13]/D
+    0:01:53  357097.9      0.24      84.4     277.1 regester_memo/memo_reg[5][6]/D
+    0:01:53  356959.6      0.24      78.4     277.1 regester_memo/memo_reg[5][31]/D
+    0:01:53  356909.9      0.23      74.4     273.6 Alu_32b/add_9/A[29]      
+    0:01:54  357440.7      0.23      74.4     232.3 Alu_32b/add_9/A[17]      
+    0:01:54  357971.6      0.23      74.4     191.0 Alu_32b/add_9/A[5]       
+    0:01:54  358458.2      0.23      74.4     156.1 Alu_32b/add_9/B[20]      
+    0:01:54  358989.0      0.23      74.4     118.3 Alu_32b/add_9/B[8]       
+    0:01:54  359540.1      0.23      74.4      87.6 regester_memo/W_data[0]  
+    0:01:54  359717.1      0.19      73.9      75.7 regester_memo/W_data[10] 
+    0:01:54  359799.1      0.19      73.0      69.0 regester_memo/memo_reg[30][15]/D
+    0:01:54  359660.8      0.19      68.3      69.0 regester_memo/memo_reg[26][9]/D
+    0:01:54  359522.6      0.19      63.5      69.0 regester_memo/memo_reg[22][3]/D
+    0:01:54  359384.4      0.19      58.7      69.0 regester_memo/memo_reg[22][28]/D
+    0:01:55  359246.1      0.19      54.0      69.0 regester_memo/memo_reg[18][21]/D
+    0:01:55  359107.9      0.19      49.2      69.0 regester_memo/memo_reg[14][14]/D
+    0:01:55  358969.6      0.19      44.5      69.0 regester_memo/memo_reg[10][7]/D
+    0:01:55  358831.4      0.19      39.7      69.0 regester_memo/memo_reg[6][0]/D
+    0:01:55  358693.2      0.19      35.0      69.0 regester_memo/memo_reg[6][25]/D
+    0:01:55  358554.9      0.19      30.2      69.0 regester_memo/memo_reg[2][18]/D
+    0:01:55  358457.2      0.16      27.0      69.0 regester_memo/memo_reg[31][11]/D
+    0:01:56  358319.0      0.16      22.9      69.0 regester_memo/memo_reg[27][22]/D
+    0:01:56  358180.8      0.16      18.9      69.0 regester_memo/memo_reg[19][2]/D
+    0:01:56  358042.5      0.16      14.8      69.0 regester_memo/memo_reg[15][24]/D
+    0:01:57  357904.3      0.16      10.8      69.0 regester_memo/memo_reg[7][8]/D
+    0:01:57  357766.0      0.16       6.8      69.0 regester_memo/memo_reg[3][25]/D
+    0:01:57  357627.8      0.16       2.8      69.0 regester_memo/memo_reg[15][14]/D
+    0:01:57  357549.5      0.04       0.1      69.0 regester_memo/memo_reg[0][4]/D
+    0:01:58  357600.1      0.00      -0.0      65.5 pc_target/add_7/net106765
+    0:01:58  357644.4      0.00      -0.0      62.4                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:58  357644.4      0.00      -0.0      62.4                          
+    0:01:58  357644.4      0.00      -0.0      62.4                          
+    0:02:07  349056.9      1.26      39.7      62.4                          
+    0:02:12  345651.6      1.26      34.7      62.4                          
+    0:02:14  345306.0      1.27      34.7      62.4                          
+    0:02:14  345000.0      1.27      34.7      62.4                          
+    0:02:14  344870.1      1.27      34.7      62.4                          
+    0:02:15  344759.5      1.27      34.7      62.4                          
+    0:02:15  344685.8      1.27      34.6      62.4                          
+    0:02:15  344607.4      1.27      34.6      62.4                          
+    0:02:15  344558.6      1.27      34.6      62.4                          
+    0:02:15  344517.1      1.27      34.6      62.4                          
+    0:02:15  344480.3      1.27      34.6      62.4                          
+    0:02:15  344443.4      1.27      34.6      62.4                          
+    0:02:15  344406.5      1.27      34.6      62.4                          
+    0:02:16  344369.7      1.27      34.6      62.4                          
+    0:02:16  344332.8      1.27      34.6      62.4                          
+    0:02:16  344295.9      1.27      34.6      62.4                          
+    0:02:16  344295.9      1.27      34.6      62.4                          
+    0:02:17  344296.9      1.25      34.6      62.4                          
+    0:02:20  343490.5      1.25      34.5      62.4                          
+    0:02:20  343485.8      1.25      34.5      62.4                          
+    0:02:20  343485.8      1.25      34.5      62.4                          
+    0:02:20  343485.8      1.25      34.5      62.4                          
+    0:02:20  343485.8      1.25      34.5      62.4                          
+    0:02:20  343485.8      1.25      34.5      62.4                          
+    0:02:20  343485.8      1.25      34.5      62.4                          
+    0:02:20  343486.8      1.25      34.4      62.4                          
+    0:02:21  343487.7      1.25      34.4      62.4                          
+    0:02:21  343487.7      1.25      34.3      62.4                          
+    0:02:21  343487.7      1.25      34.3      62.4                          
+    0:02:21  343486.8      1.25      34.3      62.4                          
+    0:02:21  343492.3      1.25      34.3      62.4                          
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'FullModule_RiscV' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'mem_D/clk': 3079 load(s), 1 driver(s)
+1
+report_timing -max_paths 20 > ../report/synth_timing_before_optimize.rpt 
+compile -top  
+
+Information: There are 334 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:06  254191.1      2.26      49.1   21759.9                          
+    0:00:07  254145.0      1.02      31.5   21683.7 regester_memo/memo_reg[0][8]/D
+    0:00:07  254097.1      0.92      27.5   21761.9 regester_memo/memo_reg[0][3]/D
+    0:00:07  254302.6      0.88      22.2   22193.7 regester_memo/memo_reg[0][31]/D
+    0:00:07  254573.6      0.84      15.8   22814.3 regester_memo/memo_reg[0][26]/D
+    0:00:08  254869.4      0.77       9.9   23438.3 regester_memo/memo_reg[0][6]/D
+    0:00:08  255247.3      0.70       3.7   24151.3 regester_memo/memo_reg[0][14]/D
+    0:00:08  255297.0      0.70       3.0   24239.9 regester_memo/memo_reg[0][14]/D
+    0:00:08  255403.9      0.50       0.5   24498.1 regester_memo/memo_reg[30][4]/D
+    0:00:08  255395.6      0.01       0.0   24499.5                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:08  255395.6      0.01       0.0   24499.5                          
+    0:00:09  255707.1      0.00       0.0   24489.9                          
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'FullModule_RiscV' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'mem_D/clk': 3079 load(s), 1 driver(s)
+1
+report_timing -max_paths 20 > ../report/synth_timing_after_optimize.rpt
+# ============ Reports ============= #
+report_area  -nosplit  > ../report/synth_area.rpt
+report_power -nosplit > ../report/synth_power.rpt
+report_cell > ../report/synth_cells.rpt
+report_qor  > ../report/synth_qor.rpt
+report_clock > ../report/clock.rpt
+report_constraint -all_violators -nosplit > ../report/Syn_violations.rpt
+report_timing > ../report/critical_Path_timing.rpt
+report_timing -max_paths 20 > ../report/synth_timing.rpt 
+report_resources -hierarchical > ../report/synth_resources.rpt
+Error: Errors detected during redirect
+	Use error_info for more info. (CMD-013)
+# ============ Outputs ============= #
+define_name_rules  no_case -case_insensitive
+1
+change_names -rule no_case -hierarchy
+1
+change_names -rule verilog -hierarchy
+Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
+1
+report_names -rules verilog
+
+Design          Type    Object                  New Name
+--------------------------------------------------------------------------------
+1
+write_sdc ../output/${design}.sdc 
+1
+write_sdf ../output/${design}.sdf 
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/mnt/hgfs/D/RiscV_pnr/syn/output/FullModule_RiscV.sdf'. (WT-3)
+1
+write -hierarchy -format verilog -output ../output/${design}.v 
+Writing verilog file '/mnt/hgfs/D/RiscV_pnr/syn/output/FullModule_RiscV.v'.
+1
+write -f ddc -hierarchy -output ../output/${design}.ddc   
+Writing ddc file '../output/FullModule_RiscV.ddc'.
+1
+set_svf -off
+1
+1
+dc_shell> 
